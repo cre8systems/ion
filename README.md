@@ -36,7 +36,8 @@ timestamp=2015-06-04T06:47 # a date object, when the file was generated
 - empty lines or lines with whitespace are ignored
 - lines beginning with `# ` are comments and contain no data. Comments may also be placed at the end of each line
 - lines with `@key: value` contain optional meta data for the currently processed section **[TBD]***
-- lines beginning with `#!` are section comments and are meant to automatically generate documentation. Those will be placed in the documentation 
+- line beginning with `#!` are document comments, will be gathered and placed in the head of the generated documentation
+- lines beginning with `#@` are section comments and are meant to automatically generate documentation. Those will be placed in the documentation 
 - lines beginning with `##` are inline comments
 
 ### Strings
