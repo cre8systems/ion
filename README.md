@@ -10,10 +10,29 @@ ION itself is not concerned with the semantics.
 - allow big amounts of data in tabular format
 - allow writing documentation within an ION file, using special comments
 
+## Example
+```
+[META]
+#! Information applicable to the all following sections!
+source="EG"  # a string
+timestamp=2015-06-04T06:47 # a date object, when the file was generated
+    time_taken_ms=1234 # a numeric (u64)
+    
+# indentation before a key will be ignored
+
+[ACCOMODATION.MD]
+#! Accommodation master data
+| name  | city  | stars | # all lines must start with a |
+|-------|-------|-------| # optional
+| Ibis  | Dubai | 2.0   |
+|Ibis Mall of the Emirates|Dubai|2.0| # leading and trailing whitespace will be ignored
+|Kempinkski|" D U B A I "|5.0| # unless you put quotes right after and before |
+```
+
 ## General Rules
 
 - UTF-8 encoding, always. No exceptions. All data *must* be UTF-8 encoded. Everything else should panic the parser.
-- newlines are Linux newlines `\n`
+- newlines `\r` `\r\n` and `\n` are equivalent.
 - empty lines or lines with whitespace are ignored
 - lines beginning with `# ` are comments and contain no data. Comments may also be placed at the end of each line
 - lines with `@key: value` contain optional meta data for the currently processed section **[TBD]***
