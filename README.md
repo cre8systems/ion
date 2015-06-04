@@ -115,7 +115,7 @@ let raw = "[FOOBAR]\n|name|value|\n|foo|bar|\n";
 let section : Section = raw.parse();
 
 match section {
-    Table(table)     => { println!("{}={}", table[0].get("name").unwrap(), table[0][0]) },
+    Table(table)     => { println!("{}={}", table[0].get("name").unwrap(), table[0][0].unwrap()) },
     Dictionary(dict) => { println!("name={}", dict.get("name")) }
 }
 ```
