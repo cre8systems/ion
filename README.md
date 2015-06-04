@@ -54,6 +54,13 @@ The following characters must be escaped
 \UXXXXXXXX - unicode         (U+XXXXXXXX)
 ```
 
+### Datetime
+Datetimes are RFC 3339 dates.
+
+```
+datetime = 1979-05-27T07:32:00Z
+```
+
 ## Sections
 
 A section is started by a section name in square brackets `[NAME]`. 
@@ -65,13 +72,15 @@ There are two types of sections - dictionary and tabular.
 This is borrowed from TOML. A dictionary sections *may not* contain a line beginning with `|`. This would indicate a tabular section. 
 Parsers must report this as an error.
 
+Whitespace before and after `=` are optional
+
 Example:
 
 ```toml
 [MY_DICTIONARY]
 name="Some name"
 city="Dubai"
-country_code="AE"
+country_code = "AE"
 ```
 ### Tabular
 
